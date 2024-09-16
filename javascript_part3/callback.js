@@ -9,3 +9,4 @@ function sum(a,b,callback){
 }
 
 sum(1,2,add);
+
