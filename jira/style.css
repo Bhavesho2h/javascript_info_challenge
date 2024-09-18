@@ -8,7 +8,7 @@ body {
 
 .toolbox-cont {
   height: 5rem;
-  background-color: black;
+  background-color: #3B3030;
   display: flex;
   align-items: center;
 }
@@ -43,21 +43,54 @@ body {
 }
 
 .lightblue {
-    background-color: lightblue;
+  background-color: lightblue;
 }
 
 .lightgreen {
-    background-color: lightgreen;
+  background-color: lightgreen;
 }
 
 .black {
-    background-color: black;
+  background-color: black;
 }
 
-.add-btn{
-    font-size: 1.5rem;
+.add-btn {
+  font-size: 1.5rem;
 }
 
-.remove-btn{
-    font-size: 1.5rem;
+.remove-btn {
+  font-size: 1.5rem;
+}
+
+.modal-cont {
+  background-color: #3B3030;
+  height: 50vh;
+  width: 50vw;
+  display: none;
+  margin-left: 20rem;
+  margin-top: 7rem;
+}
+
+.textarea-cont {
+  outline: none;
+  resize: none;
+  border: none;
+  width: 75%;
+  background-color: beige;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.priority-color {
+  height: 3rem;
+  width: 5rem;
+}
+
+.priority-color-cont{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around ;
 }
