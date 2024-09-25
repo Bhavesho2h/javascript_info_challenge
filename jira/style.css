@@ -8,7 +8,7 @@ body {
 
 .toolbox-cont {
   height: 5rem;
-  background-color: #3B3030;
+  background-color: #3b3030;
   display: flex;
   align-items: center;
 }
@@ -63,12 +63,13 @@ body {
 }
 
 .modal-cont {
-  background-color: #3B3030;
-  height: 50vh;
-  width: 50vw;
+  background-color: #3b3030;
+  height: 60vh;
+  width: 55vw;
   display: none;
-  margin-left: 20rem;
-  margin-top: 7rem;
+  position: absolute;
+  left: 25vw;
+  top: 10vw;
 }
 
 .textarea-cont {
@@ -86,11 +87,47 @@ body {
   width: 5rem;
 }
 
-.priority-color-cont{
-    height: 100%;
-    width: 25%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around ;
+.priority-color-cont {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.main-cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly ;
+  margin-top: 2rem;
+  
+  
+}
+
+.ticket-cont {
+  height: 10rem;
+  width: 17rem;
+  background-color: beige;  
+  margin-top: 1rem;
+}
+
+.ticket-color {
+  height: 1rem;
+  background-color: lightblue;
+}
+
+.ticket-id {
+  height: 1.5rem;
+  background-color: #3b3030;
+  color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.task-area {
+  font-size: 1.35rem;
+  height: (100% -1rem -1.5rem);
+  padding: 5px;
 }
