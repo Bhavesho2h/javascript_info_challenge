@@ -8,7 +8,8 @@ let newDiv = document.createElement('div');
 let ticketCont = document.querySelector("ticket-cont");
 let ticketColor = document.querySelector(".ticket-color");
 let ticketId = document.querySelector('.ticket-id');
-
+let selectedColor = document.querySelectorAll('.priority-color');
+let colorPicked;
 
 addBtn.addEventListener('click', function () {
     if (addModal) {
@@ -23,22 +24,44 @@ addBtn.addEventListener('click', function () {
 modal.addEventListener('keydown', (e) => {
     let key = e.key;
     if (key == 'Enter') {
-        createTicket(textAreaCont.value);
+        createTicket(textAreaCont.value, colorPicked);
         modal.style.display = 'none';
         textAreaCont.value = "";
         addModal = !addModal
     }
 })
 
-function createTicket(value) {
+function createTicket(value, colorPicked) {
     let ticketCont = document.createElement('div');
-    ticketCont.setAttribute('class','ticket-cont')
-    ticketCont.innerHTML = `<div class="ticket-color"></div>
+    console.log(colorPicked,'colorPicked');
+    ticketCont.setAttribute('class', 'ticket-cont')
+    ticketCont.innerHTML = `<div class="ticket-color ${colorPicked}"></div>
           <div class="ticket-id">#8yh68gh</div>
           <div class="task-area">${value}</div>`
 
     mainCont.appendChild(ticketCont)
-
-
-
 }
+
+for (let i = 0; i < selectedColor.length; i++) {
+    selectedColor[i].addEventListener('click', (event) => {
+        removeSelected();
+        event.target.classList.add('selected-color')
+        if (selectedColor[i].classList.contains('selected-color')) {
+            colorPicked = selectedColor[i].classList[0];
+        }
+    })
+}
+
+
+const removeSelected = () => {
+    for (let i = 0; i < selectedColor.length; i++) {
+        selectedColor[i].classList.remove('selected-color');
+    }
+}
+
+
+
+
+
+
+

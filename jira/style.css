@@ -99,22 +99,20 @@ body {
 .main-cont {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly ;
+  justify-content: space-evenly;
   margin-top: 2rem;
-  
-  
 }
 
 .ticket-cont {
   height: 10rem;
   width: 17rem;
-  background-color: beige;  
+  background-color: beige;
   margin-top: 1rem;
 }
 
 .ticket-color {
   height: 1rem;
-  background-color: lightblue;
+  
 }
 
 .ticket-id {
@@ -130,4 +128,8 @@ body {
   font-size: 1.35rem;
   height: (100% -1rem -1.5rem);
   padding: 5px;
+}
+
+.selected-color {
+  border:0.2rem solid beige;
 }
