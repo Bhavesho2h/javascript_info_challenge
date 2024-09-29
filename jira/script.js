@@ -5,13 +5,14 @@ let addModal = true;
 let taskArea = document.querySelector(".task-area");
 let mainCont = document.querySelector(".main-cont");
 let newDiv = document.createElement('div');
-let ticketCont = document.querySelector("ticket-cont");
+let ticketCont = document.querySelector(".ticket-cont");
 let ticketColor = document.querySelector(".ticket-color");
 let ticketId = document.querySelector('.ticket-id');
 let selectedColor = document.querySelectorAll('.priority-color');
 let colorPicked;
 let delBtn = document.querySelector('.remove-btn');
 let isdelBtnEnable = false;
+
 
 
 addBtn.addEventListener('click', function () {
@@ -38,11 +39,19 @@ function createTicket(value, colorPicked) {
     let ticketCont = document.createElement('div');
     console.log(colorPicked, 'colorPicked');
     ticketCont.setAttribute('class', 'ticket-cont')
-    ticketCont.innerHTML = `<div class="ticket-color ${colorPicked}"></div>
+    ticketCont.innerHTML = `<div class="ticket-color ${colorPicked ? colorPicked : 'black'}"></div>
           <div class="ticket-id">#8yh68gh</div>
           <div class="task-area">${value}</div>`
 
-    mainCont.appendChild(ticketCont)
+    mainCont.appendChild(ticketCont);
+    console.log(isdelBtnEnable,'isdelBtnEnable');
+  ticketCont.addEventListener('click',()=> {
+    if(isdelBtnEnable){
+        console.log(ticketCont,'which ticket is clicked');
+        ticketCont.remove();
+    }
+    
+  })
 }
 
 for (let i = 0; i < selectedColor.length; i++) {
@@ -63,14 +72,20 @@ const removeSelected = () => {
 }
 
 delBtn.addEventListener('click', (event) => {
-    if(isdelBtnEnable){
+    console.log('button got clicked');
+    if (isdelBtnEnable) {
+        console.log(isdelBtnEnable, 'isDelBtnEnable');
+        delBtn.style.color = 'black'
+    }
+    else {
         delBtn.style.color = 'red'
     }
-    else{
-        delBtn.style.color = 'black'
-    }   
-    isdelBtnEnable = !isdelBtnEnable; 
+    isdelBtnEnable = !isdelBtnEnable;
 })
+
+
+
+
 
 
 
