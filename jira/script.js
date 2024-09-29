@@ -10,6 +10,9 @@ let ticketColor = document.querySelector(".ticket-color");
 let ticketId = document.querySelector('.ticket-id');
 let selectedColor = document.querySelectorAll('.priority-color');
 let colorPicked;
+let delBtn = document.querySelector('.remove-btn');
+let isdelBtnEnable = false;
+
 
 addBtn.addEventListener('click', function () {
     if (addModal) {
@@ -33,7 +36,7 @@ modal.addEventListener('keydown', (e) => {
 
 function createTicket(value, colorPicked) {
     let ticketCont = document.createElement('div');
-    console.log(colorPicked,'colorPicked');
+    console.log(colorPicked, 'colorPicked');
     ticketCont.setAttribute('class', 'ticket-cont')
     ticketCont.innerHTML = `<div class="ticket-color ${colorPicked}"></div>
           <div class="ticket-id">#8yh68gh</div>
@@ -59,6 +62,15 @@ const removeSelected = () => {
     }
 }
 
+delBtn.addEventListener('click', (event) => {
+    if(isdelBtnEnable){
+        delBtn.style.color = 'red'
+    }
+    else{
+        delBtn.style.color = 'black'
+    }   
+    isdelBtnEnable = !isdelBtnEnable; 
+})
 
 
 
