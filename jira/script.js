@@ -6,12 +6,14 @@ let taskArea = document.querySelector(".task-area");
 let mainCont = document.querySelector(".main-cont");
 let newDiv = document.createElement('div');
 let ticketCont = document.querySelector(".ticket-cont");
-let ticketColor = document.querySelector(".ticket-color");
+let ticketColor = document.querySelectorAll(".ticket-color");
 let ticketId = document.querySelector('.ticket-id');
 let selectedColor = document.querySelectorAll('.priority-color');
 let colorPicked;
 let delBtn = document.querySelector('.remove-btn');
 let isdelBtnEnable = false;
+let color = ['lightpink', 'lightblue', 'lightgreen', 'black'];
+
 
 
 
@@ -37,21 +39,41 @@ modal.addEventListener('keydown', (e) => {
 
 function createTicket(value, colorPicked) {
     let ticketCont = document.createElement('div');
-    console.log(colorPicked, 'colorPicked');
     ticketCont.setAttribute('class', 'ticket-cont')
     ticketCont.innerHTML = `<div class="ticket-color ${colorPicked ? colorPicked : 'black'}"></div>
           <div class="ticket-id">#8yh68gh</div>
           <div class="task-area">${value}</div>`
 
     mainCont.appendChild(ticketCont);
-    console.log(isdelBtnEnable,'isdelBtnEnable');
-  ticketCont.addEventListener('click',()=> {
-    if(isdelBtnEnable){
-        console.log(ticketCont,'which ticket is clicked');
-        ticketCont.remove();
-    }
-    
-  })
+    console.log(isdelBtnEnable, 'isdelBtnEnable');
+    ticketCont.addEventListener('click', () => {
+        if (isdelBtnEnable) {
+            console.log(ticketCont, 'which ticket is clicked');
+            ticketCont.remove();
+        }
+    })
+
+    let ticketColorBand = ticketCont.querySelector('.ticket-color');
+    ticketColorBand.addEventListener('click', (e) => {
+        // console.log(e.target.classList[1]);
+        let currentColor = ticketColorBand.classList[1];
+        let currentColorIdx = -1;
+        for (let i = 0; i < color.length; i++) {
+            if (currentColor === color[i]) {
+                currentColorIdx = i;
+                break;
+            }
+        }
+        let newColorIdx = (currentColorIdx + 1) % color.length;
+        let newColor = color[newColorIdx];
+        ticketColorBand.classList.remove(currentColor)
+        ticketColorBand.classList.add(newColor)
+        console.log(currentColorIdx);
+        console.log(newColorIdx);
+    })
+
+
+
 }
 
 for (let i = 0; i < selectedColor.length; i++) {
@@ -82,6 +104,9 @@ delBtn.addEventListener('click', (event) => {
     }
     isdelBtnEnable = !isdelBtnEnable;
 })
+
+
+//handling color
 
 
 
